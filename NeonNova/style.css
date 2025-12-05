@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Orbitron:wght@400..900&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    height: 100vh;
+    background: url("./background/c2b9fe24d6d0cc374066024f0e611d88.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+     filter: contrast(1.1) brightness(1.05) saturate(1.2);         
+}
+
+.login-box{
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px 0;
+    width: 350px;
+}
+
+.login-box form > div {
+    display: flex;
+    flex-direction: column;   
+    align-items: flex-start; 
+    gap: 6px;
+    padding: 12px 20px;
+}
+.login-box form > div > label,
+.login-box form > div > input {
+    text-align: start;
+}
+
+.login-box form > div > label {
+    font-size: 14px;
+}
+
+.login-box form > div > input {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.login-box form > p{
+    text-align: start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.login-box form > input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+.checkAndLink{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.remember-check {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.login-button{
+    border: none;
+    padding: 15px;
+    width: 70%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    margin: 20px auto;
+    cursor: pointer;
+    color: #fff;                     
+    font-size: 18px;
+    letter-spacing: 1px;
+    backdrop-filter: blur(4px);       
+    transition: all 0.25s ease;
+    font-family: "Orbitron", sans-serif !important;
+    font-weight: 600;       
+}
+
+
+.login-button:hover{
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);      /* 위로 살짝 이동 */
+    box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+}
+
+.login-button:active{
+    transform: scale(0.97);
+    box-shadow: none;
+}
+

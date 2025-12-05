@@ -1,0 +1,166 @@
+:root{
+    --right-background1: #8F87F1;
+    --right-background2: #C68EFD;
+    --right-background3: #E9A5F1;
+    --right-background4: #FED2E2;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------- layout ------------------- */
+
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.container{
+    display: flex;
+    width: 50%;
+    aspect-ratio: 5 / 2;
+    border: 1px solid var(--right-background4);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* ------------------- left ------------------- */
+
+.left{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-image: url("./images/yobany-c5LmP17v-W8-unsplash.jpg");
+    background-position: left;
+    background-size: cover;
+}
+
+/* LOGIN title */
+.login-title{
+    margin-bottom: 16px;
+    color: #6b4eff;
+    letter-spacing: 0.12em;
+    font-size: 20px;
+}
+
+/* login card */
+.left > form{
+    display: flex;
+    flex-direction: column;
+    padding: 24px 32px;
+    gap: 18px;
+
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+}
+
+/* inputs */
+.left > form > input{
+    padding: 14px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--right-background1);
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.left > form > input:focus{
+    background-color: #ffffff;
+    border-color: var(--right-background2);
+    box-shadow: 0 0 0 3px rgba(198,142,253,0.25);
+}
+
+/* login button */
+.login-btn{
+    padding: 16px 18px;
+    background: linear-gradient(
+        90deg,
+        var(--right-background1),
+        var(--right-background2),
+        var(--right-background3),
+        var(--right-background4)
+    );
+    border-radius: 20px;
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-btn:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+/* ------------------- right ------------------- */
+
+.right{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        180deg,
+        var(--right-background1),
+        var(--right-background2),
+        var(--right-background3),
+        var(--right-background4)
+    );
+    background-size: 200% 200%;
+    animation: gradientFlow 6s ease-in-out infinite alternate;
+}
+
+/* right text */
+.right-text{
+    color: #ffffff;
+    text-align: center;
+    padding: 24px;
+    max-width: 220px;
+
+    animation:
+        fadeInUp 0.8s ease-out 0.2s both,
+        float 4s ease-in-out 1s infinite;
+}
+
+.right-text h2{
+    font-size: 22px;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+}
+
+.right-text p{
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* ------------------- animations ------------------- */
+
+@keyframes gradientFlow{
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+@keyframes fadeInUp{
+    0%{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float{
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-6px); }
+}

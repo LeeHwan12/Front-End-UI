@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <p>Logo</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Service</a></li>
+                <li><a href="">Contraints</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="left">
+            <p class="title">Divided Space</p>
+            <p class="content">This layout explores visual separation through light,color gradients, and subtle motion.</p>
+            <button class="divided-button">divided</button>
+        </div>
+        <div class="center-line"></div>
+        <div class="right">
+            <p class="graph-tittle">DIVIDED GRAPH</p>
+            <p class="graph-subtittle">THIS DIAGRAM DOES NOT REPRESENT REAL DATA.</p>
+            <p class="description"> A non-literal visualization of system balance and division.</p>
+            <div class="graph">
+                <svg viewBox="0 0 300 140" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+
+                    <defs>
+                    <!-- ✅ 그래프 그라데이션 -->
+                    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%"   stop-color="rgb(46, 2, 73)" />
+                        <stop offset="30%"  stop-color="rgb(87, 10, 87)" />
+                        <stop offset="65%"  stop-color="rgb(169, 16, 121)" />
+                        <stop offset="100%" stop-color="rgb(248, 6, 204)" />
+                    </linearGradient>
+
+                    <!-- ✅ 이동 점 자체 그라데이션 -->
+                    <radialGradient id="dotGlow" r="50%">
+                        <stop offset="0%" stop-color="rgb(248, 6, 204)" />
+                        <stop offset="60%" stop-color="rgb(169, 16, 121)" />
+                        <stop offset="100%" stop-color="rgba(248, 6, 204, 0)" />
+                    </radialGradient>
+
+                    <!-- ✅ 그래프 경로 정의 -->
+                    <path id="graphPath"
+                            d="M20 110 L80 60 L150 85 L220 40" />
+                    </defs>
+
+                    <!-- ✅ 그래프 라인 -->
+                    <use href="#graphPath"
+                        stroke="url(#neonGradient)"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        fill="none"
+                        class="graph-line" />
+
+                    <!-- ✅ 네온 이동 점 -->
+                    <circle r="5" fill="url(#dotGlow)" class="neon-dot">
+                    <animateMotion
+                        dur="3.5s"
+                        repeatCount="indefinite"
+                        path="M20 110 L80 60 L150 85 L220 40" />
+                    </circle>
+
+                </svg>
+            </div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+        <p class="footer-title">A visual experiment. Not a real system.</p>
+
+        <p class="footer-desc">
+            All elements on this page are intentionally abstract.
+            This project focuses on separation, light, and motion —
+            not functional accuracy.
+        </p>
+
+        <p class="footer-copy">
+            Design Practice · Visual Division Study
+        </p>
+        </footer>
+</body>
+</html>

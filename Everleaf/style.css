@@ -1,0 +1,579 @@
+:root{
+    --color-brown :#7B542F;
+    --color-lightbrown:#B6771D;
+    --color-orange:#FF9D00;
+    --color--lightorange:#FFCF71;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ==============================
+   NAV
+============================== */
+
+nav{
+    background-color: var(--color-brown);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 80px;
+    transition: background-color .4s ease, backdrop-filter .4s ease, color .4s ease;
+}
+
+/* 로고 영역 */
+.logo-box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-box img{
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.brand-name{
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #fff;
+}
+
+/* 스크롤 시 효과 */
+nav.scrolled{
+    background: rgba(90, 58, 43, 0.35);
+    backdrop-filter: blur(10px);
+    
+}
+
+nav.scrolled .brand-name,
+nav.scrolled a{
+    color: var(--color-brown);
+}
+ 
+.menu > ul{
+    display: flex;
+}
+
+.menu > ul > li{
+    margin-left: 20px;
+}
+
+.menu > ul > li a{
+    position: relative;
+    color: #fff;
+    padding-bottom: 4px;
+    transition: color .3s ease, transform .3s ease;
+}
+
+.menu > ul > li a:hover{
+    color: var(--color-orange);
+    transform: translateY(-2px);
+}
+
+.menu > ul > li a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-orange);
+    transition: width .3s ease;
+}
+
+.menu > ul > li a:hover::after{
+  width: 100%;
+}
+
+/* ==============================
+   HERO
+============================== */
+
+.hero{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    padding-top: 120px;
+
+    background-image: url("./images/annie-spratt-VDXtVYJVj7A-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.2)
+    );
+}
+
+.hero > *{
+    position: relative;
+    z-index: 1;
+}
+
+.text-box{
+    max-width: 640px;
+}
+
+.title{
+    font-size: 70px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.description{
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 100px;
+}
+
+/* CTA 버튼 */
+.cta-box{
+    width: 320px;
+}
+
+.cta-box > button{
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 14px;
+    font-size: 20px;
+    border-radius: 18px;
+    background-color: var(--color--lightorange);
+    cursor: pointer;
+    border: none;
+    color: var(--color-brown);
+    transition: 
+        transform .35s ease,
+        background-color .35s ease,
+        color .35s ease,
+        box-shadow .35s ease;
+}
+
+.cta-box > button:hover{
+    transform: translateY(-4px) scale(1.03);
+    background-color: var(--color-brown);
+    color: var(--color--lightorange);
+    box-shadow: 0 12px 18px rgba(0,0,0,0.18);
+}
+
+.cta-box > button:nth-child(2){
+    background: transparent;
+    border: 2px solid var(--color--lightorange);
+    color: var(--color--lightorange);
+}
+
+.cta-box > button:nth-child(2):hover{
+    background: var(--color-brown);
+    color: #fff;
+}
+
+/* ==============================
+   ABOUT
+============================== */
+
+.content{
+    max-width: 800px;
+    margin: 40px auto 120px;
+    padding: 60px 20px;
+    line-height: 1.8;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.content.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content h2{
+    font-size: 32px;
+    color: var(--color-brown);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.content h2::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 3px;
+    background: var(--color-orange);
+    border-radius: 2px;
+}
+
+.content p{
+    color: #5a4a42;
+    font-size: 18px;
+}
+
+.content p + p{
+    margin-top: 16px;
+}
+
+/* ==============================
+   SERVICE
+============================== */
+
+.service-text{
+    position: relative;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-brown);
+    margin: 40px 0 0;
+}
+
+.service-text::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 80px;
+    height: 3px;
+    background: var(--color-orange);
+    border-radius: 2px;
+}
+
+.service{
+  max-width: 100%;
+  margin: 40px auto 120px;
+  padding: 40px 20px;
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  background-color: var(--color-brown);
+}
+
+.service-box{
+    flex: 1;
+    text-align: center;
+    padding: 50px;
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.service-box:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+.service-box i{
+  font-size: 48px;
+  color: white;
+  margin-bottom: 16px;
+  display: block;
+  transition: color .35s ease;
+}
+
+.service-box:hover i{
+    color: var(--color-orange);
+}
+
+.service-title{
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.service-description{
+    font-size: 16px;
+    color: #f8f2e7;
+    line-height: 1.6;
+}
+
+/* ==============================
+   CONSTRAINTS
+============================== */
+
+.constraints{
+    max-width: 1000px;
+    margin: 0 auto 120px;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.constraints h2{
+    font-size: 32px;
+    color: var(--color-brown);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.constraints h2::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 80px;
+    height: 3px;
+    background: var(--color-orange);
+    border-radius: 2px;
+}
+
+.constraints-wrap{
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.constraint-box{
+    flex: 1;
+    padding: 40px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 18px;
+    backdrop-filter: blur(10px);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.constraint-box:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.constraint-box i{
+    font-size: 40px;
+    color: var(--color-brown);
+    margin-bottom: 20px;
+}
+
+.constraint-box h3{
+    font-size: 22px;
+    color: var(--color-brown);
+    margin-bottom: 12px;
+}
+
+.constraint-box p{
+    color: #5a4a42;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer{
+    background-color: #5E3F27;
+    color: #F7F3E9;
+    padding: 60px 80px;
+    margin-top: 120px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* 로고 한 줄 (텍스트와 분리) */
+.footer-brand{
+    max-width: 1100px;
+    margin: 0 auto 24px;
+}
+
+.footer-brand img{
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* 텍스트 3컬럼 정렬 */
+.footer-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 공통: 각 컬럼 균등 비율 */
+.company-intro,
+.company-info,
+.simple-menu{
+    flex: 1;
+}
+
+/* 회사 소개 */
+.company-intro .intro-text{
+    line-height: 1.7;
+    color: #f7eee0;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+}
+
+/* 회사 정보 */
+.company-info{
+    text-align: left;
+}
+
+.company-info p{
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #f3e7d7;
+}
+
+/* 연락처 라벨 (Phone / Email / Based in) */
+.company-info .label{
+    display: inline-block;
+    min-width: 80px;          /* 라벨 너비 맞춰서 정렬 */
+    margin-right: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    color: #fbe2b5;
+}
+
+/* 메뉴 */
+.simple-menu ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+}
+
+.simple-menu a{
+    color: #F7F3E9;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 2px;
+    transition: color .3s ease, transform .3s ease;
+    position: relative;
+}
+
+.simple-menu a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.7);
+    transition: width .25s ease;
+}
+
+.simple-menu a:hover{
+    color: var(--color-orange);
+    transform: translateX(4px);
+}
+
+.simple-menu a:hover::after{
+    width: 100%;
+}
+
+/* 아래 가는 줄 + 카피라이트 */
+.footer-bottom{
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 28px;
+    text-align: center;
+}
+
+.footer-bottom .project-intro{
+    max-width: 780px;
+    margin: 0 auto 8px;
+    color: #f1e3d1;
+    font-size: 14px;
+}
+
+.footer-bottom .project-copy{
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #d6c6b4;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 900px){
+    /* nav / hero 글자 크기 조정 */
+    nav{
+        padding: 16px 24px;
+    }
+
+    .title{
+        font-size: 48px;
+    }
+
+    .description{
+        font-size: 22px;
+        margin-bottom: 60px;
+    }
+
+    .service{
+        flex-direction: column;
+    }
+
+    .constraints-wrap{
+        flex-direction: column;
+    }
+
+    .service-box,
+    .constraint-box{
+        padding: 32px;
+    }
+
+    footer{
+        padding: 50px 30px;
+    }
+
+    .footer-brand{
+        max-width: 100%;
+    }
+
+    .footer-top{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .simple-menu ul{
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}

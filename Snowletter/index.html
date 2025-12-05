@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text-box">
+            <p class="title">Merry & Bright Holidays</p>
+            <p class="sub">Wrap your season with joy and festive cheer</p>
+        </div>
+        <div class="form-box">
+            <p class="form-title">Register</p>
+            <form action="#">
+                <input type="text" placeholder="Enter your username">
+                <input type="password" placeholder="Create a password">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        <footer>
+            <a href="#" class="login">Already have an account? Login</a>
+            <p class="footer-title">Celebrate the Magic</p>
+            <p class="footer-desc">Join us for a season filled with warmth, love, and holiday magic.</p>
+            <p class="footer-copy">© 2025 Holiday Wonderland. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/loktar00/JQuery-Snowfall/jquery.snowfall.min.js"></script>
+    <script>
+    window.onload = () => {
+        $(document).snowfall({
+        flakeCount: 100,
+        maxSpeed: 3,
+        maxSize: 5,
+        round: true,
+        shadow: true
+        });
+    };
+    </script>
+</body>
+</html>

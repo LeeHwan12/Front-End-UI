@@ -1,0 +1,629 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Birthstone&family=Londrina+Shadow&family=Nanum+Pen+Script&family=Nerko+One&family=Orbitron:wght@400..900&family=Pangolin&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ==================================================
+   Color Tokens & Reset
+================================================== */
+:root{
+  --background-colors1: #F7F3E9;
+  --background-colors2: #A3D2CA;
+  --background-colors3: #5EAAA8;
+  --background-colors4: #F05945;
+  --logo-color: #FF8F8F;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* ==================================================
+   Body
+================================================== */
+body{
+  background: linear-gradient(
+    159deg,
+    var(--background-colors1),
+    var(--background-colors2),
+    var(--background-colors3),
+    var(--background-colors4)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Pangolin", cursive;
+}
+
+/* ==================================================
+   Navigation
+================================================== */
+nav{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 28px 80px;
+  transition: background-color .4s ease, backdrop-filter .4s ease;
+}
+
+/* 스크롤 시 */
+nav.scrolled{
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(10px);
+}
+
+.logo p{
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: default;
+
+  background: linear-gradient(
+    120deg,
+    var(--logo-color),
+    var(--background-colors4)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.menu ul{
+  display: flex;
+}
+
+.menu ul li{
+  margin-left: 48px;
+}
+
+.menu ul li a{
+  font-size: 15px;
+  letter-spacing: 1px;
+  position: relative;
+  color: #fff;
+  padding-bottom: 4px;
+}
+
+.menu ul li a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--logo-color);
+  transition: width .3s ease;
+}
+
+.menu ul li a:hover::after{
+  width: 100%;
+}
+
+.menu ul li a:hover{
+  color: var(--logo-color);
+}
+
+/* Nav CTA 버튼 */
+.nav-cta{
+  padding: 8px 18px;
+  margin-left: 32px;
+
+  font-family: "Pangolin", cursive;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(
+    90deg,
+    var(--logo-color),
+    rgba(240, 89, 69, 0.8)
+  );
+  color: #fff;
+
+  backdrop-filter: blur(4px);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.nav-cta:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  opacity: 0.95;
+}
+
+/* ==================================================
+   Hero Section
+================================================== */
+.hero{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* 이미지 / 텍스트 / 버튼 순차 페이드인 */
+.hero-img,
+.hero-text,
+.hero-btn{
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeIn 1s ease forwards;
+}
+
+.hero-img{
+  width: 50%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 16px;
+  animation-delay: 0.1s;
+}
+
+.hero-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation-delay: 0.35s;
+}
+
+.hero-title{
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hero-description{
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.hero-btn{
+  width: 33%;
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(
+    90deg,
+    var(--logo-color),
+    var(--background-colors1),
+    var(--background-colors4)
+  );
+
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  font-family: "Pangolin", cursive;
+
+  backdrop-filter: blur(6px);
+  text-shadow: 0 2px 5px rgba(0,0,0,.25);
+  transition: transform .4s ease, box-shadow .4s ease;
+  animation-delay: 0.55s;
+}
+
+.hero-btn:hover{
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+}
+
+/* Hero fade-in */
+@keyframes heroFadeIn{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================================================
+   Card Intro
+================================================== */
+.card-intro{
+  width: 80%;
+  margin: 100px auto 24px;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeIn 0.9s ease forwards;
+  animation-delay: 0.15s;
+}
+
+.card-intro p{
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 0.6px;
+  opacity: 0.8;
+}
+
+/* 아래 작은 라인 */
+.card-intro p::after{
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  margin: 12px auto 0;
+  background: var(--logo-color);
+  opacity: 0.7;
+}
+
+/* ==================================================
+   Card Section
+================================================== */
+.card-section{
+  width: 80%;
+  margin: 100px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 32px;
+}
+
+.card{
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(6px);
+  transition: transform .4s ease, box-shadow .4s ease;
+  cursor: pointer;
+}
+
+.card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+}
+
+.card:hover .title{
+  color: var(--background-colors4);
+}
+
+.img-part{
+  height: 180px;
+  overflow: hidden;
+}
+
+.img-part img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+
+.card:hover .img-part img{
+  transform: scale(1.1);
+}
+
+.text-part{
+  padding: 16px;
+}
+
+.title{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.description{
+  font-size: 14px;
+  opacity: .75;
+  margin-top: 6px;
+}
+
+/* 카드 버튼 */
+.card-btn{
+  width: fit-content;
+  padding: 8px 14px;
+  margin-top: 12px;
+
+  font-family: "Pangolin", cursive;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: #222;
+
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+
+  background-color: rgba(240, 89, 69, 0.5);
+  backdrop-filter: blur(4px);
+
+  opacity: 0.85;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.card:hover .card-btn{
+  opacity: 1;
+}
+
+.card-btn:hover{
+  background-color: rgba(240, 89, 69, 0.75);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-btn i{
+  margin-left: 6px;
+  font-size: 0.85em;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.card-btn:hover i{
+  transform: translateX(4px);
+}
+
+/* ==================================================
+   Intro – Slide (Left Image / Right Text)
+================================================== */
+.intro{
+  width: 80%;
+  margin: 160px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.intro-title{
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* 슬라이더 마스크 */
+.slideBox{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 슬라이드 트랙 */
+.slideTrack{
+  display: flex;
+  width: 100%;
+  transition: transform 0.6s ease;
+}
+
+/* 한 장이 slideBox를 꽉 채움 */
+.slide-item{
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 40px;
+
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+}
+
+/* 왼쪽 이미지 */
+.slide-img{
+  width: 50%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.slide-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 오른쪽 텍스트 */
+.slide-text{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.slide-text h3{
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.slide-text p{
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+/* 좌우 소프트 마스크 */
+.slideBox::before,
+.slideBox::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+}
+
+.slideBox::before{
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--background-colors1),
+    transparent
+  );
+}
+
+.slideBox::after{
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--background-colors1),
+    transparent
+  );
+}
+
+/* ==================================================
+   Footer
+================================================== */
+footer{
+  background-color: rgba(0,0,0,.18);
+  text-align: center;
+  padding: 100px;
+  margin-top: 100px;
+}
+
+footer > div{
+  margin: 33px auto 0;
+}
+
+/* 그라데이션 + 글로우 타이틀 */
+.footer-title{
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  background: linear-gradient(
+    20deg,
+    var(--background-colors1),
+    var(--background-colors2),
+    var(--logo-color),
+    var(--background-colors4)
+  );
+  background-size: 200% 200%;
+  background-position: center;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow:
+    0 4px 12px rgba(255, 143, 143, 0.28),
+    0 2px 6px rgba(94, 170, 168, 0.2);
+
+  animation: gradientFlow 8s ease infinite alternate;
+}
+
+.footer-desc{
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.footer-copy{
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* footer gradient animation */
+@keyframes gradientFlow{
+  0%{ background-position: 0% 50%; }
+  100%{ background-position: 100% 50%; }
+}
+
+/* ==================================================
+   Responsive
+================================================== */
+@media (max-width:1024px){
+  .card-section{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (max-width:900px){
+  nav{
+    padding: 40px 24px;
+  }
+
+  .menu ul li{
+    margin-left: 24px;
+  }
+
+  .logo p{
+    font-size: 28px;
+  }
+
+  .hero{
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .hero-img,
+  .hero-text{
+    width: 100%;
+  }
+
+  .hero-btn{
+    width: 60%;
+  }
+
+  .nav-cta{
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+
+  .slide-item{
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .slide-img,
+  .slide-text{
+    width: 100%;
+  }
+
+  .slide-img{
+    height: 240px;
+  }
+}
+
+@media (max-width:640px){
+  .card-section{
+    grid-template-columns: 1fr;
+  }
+
+  nav{
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 16px;
+  }
+
+  .hero-title{
+    font-size: 32px;
+  }
+
+  .hero-btn{
+    width: 100%;
+  }
+
+  .intro{
+    width: 90%;
+  }
+}
+
+/* ==================================================
+   Reduce Motion
+================================================== */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

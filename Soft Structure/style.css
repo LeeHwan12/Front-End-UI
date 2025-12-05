@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Nerko+One&family=Orbitron:wght@400..900&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ------------------ 공통 변수 ------------------ */
+:root{
+    --blue-first: #5356FF;
+    --blue-sencond:  #378CE7;
+    --blue-third: #67C6E3;
+    --blue-fourth: #DFF5FF;
+
+    --pupple-first: #E5D9F2;
+    --pupple-sencond: #F5EFFF;
+    --pupple-third: #CDC1FF;
+    --pupple-fourth: #A594F9;
+
+    --underine-color: #181C14;
+    --underine-color2: #3C3D37;
+    --underine-color3: #697565;
+    --underine-color4: #ECDFCC;
+
+    --font-family: "Orbitron", sans-serif;
+}
+
+/* ------------------ 리셋 ------------------ */
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    background-image: linear-gradient(
+        135deg,
+        var(--blue-first),
+        var(--pupple-fourth),
+        var(--blue-third),
+        var(--pupple-sencond)
+    );
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    color: #111;
+}
+
+span{
+    color: #000;
+}
+
+/* ------------------ 그라데이션 밑줄 링크 ------------------ */
+.gradient-underline {
+    position: relative;
+    color: #fff;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.gradient-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+
+    background: linear-gradient(
+        180deg,
+        var(--underine-color),
+        var(--underine-color2),
+        var(--underine-color3),
+        var(--underine-color4)
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.gradient-underline:hover::after {
+    transform: scaleX(1);
+}
+
+/* ------------------ NAV ------------------ */
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 64px;
+    font-family: "Quantico", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    font-style: normal;
+}
+
+nav a{
+    color: #fff;
+    transition: 0.5s;
+}
+
+nav a:hover{
+    color: var(--blue-first);
+}
+
+.menu > ul {
+    display: flex;
+    gap: 30px;
+}
+
+/* ------------------ 메인 컨테이너 ------------------ */
+.container{
+    width: 80%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 24px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 18px;
+
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+/* ------------------ 이미지 슬라이더 (한 장씩) ------------------ */
+.image-slider {
+    width: 100%;
+    overflow: hidden;          /* 한 장만 보이게 마스크 */
+    border-radius: 18px;
+}
+
+.slider-track {
+    display: flex;             /* 슬라이드들을 가로로 나열 */
+    transition: transform 0.8s ease;
+}
+
+.sliderItems {
+    min-width: 100%;           /* 한 화면 = 한 슬라이드 */
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+}
+
+.sliderItems img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* 비율 유지 + 꽉 채우기 */
+    display: block;
+}
+
+/* ------------------ 텍스트 박스 ------------------ */
+.text-box{
+    color: #0f172a;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.text-box p:first-child{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 4px;
+
+    background-image: linear-gradient(
+        120deg,
+        var(--pupple-fourth),
+        var(--blue-first)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.text-box p:last-child{
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(15, 23, 42, 0.9);
+}
+.hero-button{
+    padding: 20px 36px;
+    background-color: var(--pupple-first);
+    opacity: 0.85;
+    border-radius: 18px;
+    border: none;
+
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+
+    margin-top: 20px;
+    cursor: pointer;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hero-button:hover{
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.hero-button:active{
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* ------------------ 반응형 ------------------ */
+@media (max-width: 768px) {
+    nav{
+        padding: 16px 20px;
+        font-size: 18px;
+    }
+
+    .menu > ul{
+        gap: 16px;
+    }
+
+    .container{
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .text-box{
+        text-align: center;
+        align-items: center;
+    }
+
+    .text-box p:first-child{
+        font-size: 26px;
+    }
+}
+
+.visual-blocks{
+    width: 80%;
+    max-width: 1200px;
+    margin: 80px auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+
+.block{
+    flex: 1;
+    aspect-ratio: 1 / 1;          
+    border-radius: 50%;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.block:hover{
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+.shape{
+    width: 80%;
+    height: 20px;
+    border: 1px solid red;
+    padding: 20px;
+    margin: 20px;
+}
+.diagram-section{
+    width: 80%;
+    max-width: 1200px;
+    margin: 72px auto 40px;
+    text-align: center;
+    color: #0f172a;
+}
+
+.diagram-title{
+    font-family: "Quantico", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.diagram-sub{
+    font-size: 13px;
+    opacity: 0.8;
+    margin-bottom: 32px;
+}
+.diagram{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.diagram-node{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+
+    background: radial-gradient(circle at 30% 20%,
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.2)
+    );
+    box-shadow: 0 16px 40px rgba(15,23,42,0.35);
+    border: 1px solid rgba(255,255,255,0.8);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 노드 안 텍스트 */
+.diagram-label{
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    background-image: linear-gradient(
+        120deg,
+        var(--pupple-fourth),
+        var(--blue-first)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.diagram-node:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 22px 55px rgba(15,23,42,0.45);
+}
+
+.diagram-line{
+    flex: 1;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.6),
+        rgba(148,163,184,0.9),
+        rgba(255,255,255,0.6)
+    );
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .diagram{
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .diagram-line{
+        width: 2px;
+        height: 40px;
+        background: linear-gradient(
+            180deg,
+            rgba(255,255,255,0.6),
+            rgba(148,163,184,0.9),
+            rgba(255,255,255,0.6)
+        );
+    }
+}
+
+footer{
+    background-color: rgba(0,0,0,0.35);
+    padding: 100px;
+}
+footer p {
+    font-family:  var(--font-family);
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    letter-spacing: 0.04em;
+}
+
+footer span{
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.08em;
+}
+
+.practice-footer::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin: 0 auto 12px;
+  background: rgba(255,255,255,0.35);
+}

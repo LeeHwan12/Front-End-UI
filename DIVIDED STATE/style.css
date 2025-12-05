@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Birthstone&family=Londrina+Shadow&family=Nerko+One&family=Orbitron:wght@400..900&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root{
+    --background-black : #000000;
+    --background-gray : #222222;
+    --background-green : #1DCD9F;
+    --background-darkgreen : #169976;
+
+    --neon-first: rgb(46, 2, 73);
+    --neon-second: rgb(87, 10, 87);
+    --neon-thrid: rgb(169, 16, 121);
+    --neon-fourth: rgb(248, 6, 204);
+
+    --panel-width: 40%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+
+    background-image: linear-gradient(
+        90deg,
+        var(--background-black),
+        var(--background-gray),
+        var(--background-green),
+        var(--background-darkgreen)
+    );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.logo p {
+    color: var(--background-green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 32px;
+
+    text-shadow: 0 0 4px rgba(29,205,159,0.25);
+    animation: logoBreath 6s ease-in-out infinite;
+}
+
+.menu ul{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+.menu ul > li {
+    margin-left: 20px;
+    
+}
+
+.menu ul a{
+  color: rgba(0,0,0,0.6);   /* 지금 배경 기준 OK */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
+}
+
+.menu ul a:hover{
+  color: var(--neon-fourth);
+  text-shadow:
+    0 0 6px rgba(248,6,204,0.6),
+    0 0 12px rgba(248,6,204,0.4);
+}
+
+.menu ul a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu ul a:hover::after{
+  opacity: 0.6;
+}   
+
+
+.center-line{
+    position: absolute;
+    top: 20vh;
+    bottom: 20vh;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 4px;
+    border-radius: 999px;
+
+    /* ✅ Green Neon Gradient */
+    background: linear-gradient(
+        180deg,
+        rgba(29,205,159,0.0),
+        rgba(29,205,159,0.9),
+        rgba(29,205,159,0.0)
+    );
+
+    background-size: 100% 200%;
+
+    animation: greenFlow 4.5s ease-in-out infinite;
+
+    /* ✅ Neon glow (절제된 2단) */
+    box-shadow:
+        0 0 8px rgba(29,205,159,0.6),
+        0 0 16px rgba(29,205,159,0.4);
+
+    pointer-events: none; /* 라인은 인터랙션 방해 X */
+}
+
+
+@keyframes greenFlow {
+    0%{
+        background-position: 0 0%;
+        box-shadow:
+            0 0 6px rgba(29,205,159,0.4),
+            0 0 12px rgba(29,205,159,0.25);
+    }
+
+    50%{
+        background-position: 0 100%;
+        box-shadow:
+            0 0 14px rgba(29,205,159,0.8),
+            0 0 28px rgba(29,205,159,0.55);
+    }
+
+    100%{
+        background-position: 0 0%;
+        box-shadow:
+            0 0 6px rgba(29,205,159,0.4),
+            0 0 12px rgba(29,205,159,0.25);
+    }
+}
+
+@keyframes logoBreath{
+    0%, 100%{
+        text-shadow:
+            0 0 3px rgba(29,205,159,0.25),
+            0 0 6px rgba(29,205,159,0.15);
+    }
+
+    50%{
+        text-shadow:
+            0 0 8px rgba(29,205,159,0.45),
+            0 0 14px rgba(29,205,159,0.25);
+    }
+}   
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;    
+    width: 80%;
+    max-width: 1200px;
+    margin: 40px auto 0;      
+    gap: 80px;
+}
+
+.left,
+.right{
+    flex: 0 0 calc((100% - 80px) / 2);
+    aspect-ratio: 5/4;
+    
+}
+.title,
+.graph-title{
+    margin: 0 0 32px;
+}
+
+.title{
+    color: var(--background-green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 32px;
+
+    text-shadow: 0 0 4px rgba(29,205,159,0.25);
+    animation: logoBreath 6s ease-in-out infinite;
+
+    margin-bottom: 100px;
+}
+.content{
+    color: rgba(229,255,248,0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.6;
+    max-width: 32rem;
+    margin-bottom: 50px;
+}
+
+.divided-button{
+    padding: 16px 40px;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    color: #001915;
+    background: linear-gradient(
+        129deg,
+        rgba(29,205,159,0.1),
+        rgba(29,205,159,0.9),
+        rgba(29,205,159,0.1)
+    );
+    border-radius: 18px;
+
+    border: 1px solid rgba(29,205,159,0.35);   /* ✅ 유지 */
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background-position 0.4s ease;
+    background-size: 100% 200%;
+    background-position: 0 0%;
+}
+
+
+.divided-button:hover{
+    background-position: 0 100%;               
+    border-color: rgba(29,205,159,1);      
+    box-shadow:
+        inset 0 0 6px rgba(29,205,159,0.5),
+        0 0 14px rgba(29,205,159,0.55);
+    transform: translateY(-2px);               /* 살짝 떠오르게 */
+}
+
+.divided-button:active{
+    transform: translateY(0);
+    box-shadow:
+        inset 0 0 4px rgba(29,205,159,0.4),
+        0 0 8px rgba(29,205,159,0.4);
+}
+
+.graph-tittle{
+    color: var(--background-gray);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 32px;
+    margin-bottom: 100px;
+}
+
+.graph-subtittle{
+    color: rgba(229,255,248,0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.6;
+    max-width: 32rem;
+}
+
+.description{
+    color: rgba(0,0,0,0.6);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    line-height: 1.6;
+}
+.graph {
+  width: 100%;
+  height: 220px;
+  margin-top: 48px;
+}
+
+.graph svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ✅ 그래프 그려지는 애니메이션 */
+.graph-line {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawLine 2s ease forwards;
+}
+
+/* ✅ 네온 이동 점 */
+.neon-dot {
+  filter:
+    drop-shadow(0 0 8px rgba(248, 6, 204, 0.9))
+    drop-shadow(0 0 16px rgba(169, 16, 121, 0.7))
+    drop-shadow(0 0 24px rgba(87, 10, 87, 0.5));
+
+  animation: dotPulse 1.6s ease-in-out infinite;
+}
+
+/* 선 그려짐 */
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ✅ 점 숨결 */
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+footer{
+    margin-top: 150px;
+    padding: 100px;
+    text-align: center;
+    align-items: center;
+    background: linear-gradient(
+        180deg,
+        rgba(4, 12, 10, 0.85),
+        rgba(4, 12, 10, 0.65)
+    );
+}
+
+.footer-title{
+    color: rgba(152, 61, 209, 0.55);
+    margin-bottom: 24px;
+    font-size: 24px;
+    text-shadow:
+      0 0 6px rgba(152, 61, 209, 0.25);
+    animation: footerGlow 7s ease-in-out infinite;
+}
+@keyframes footerGlow{
+    0%,100%{
+        text-shadow:
+          0 0 6px rgba(152, 61, 209, 0.2);
+    }
+    50%{
+        text-shadow:
+          0 0 12px rgba(152, 61, 209, 0.45);
+    }
+}
+.footer-desc{
+    color: #fff;
+    opacity: 0.75;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto 28px;
+}
+.footer-copy{
+    color: #fff;
+    opacity: 0.75;
+    font-size: 13px;
+}
+footer p{  
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
