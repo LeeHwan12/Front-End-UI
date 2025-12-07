@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Birthstone&family=Inika:wght@400;700&family=Italianno&family=Jersey+10&family=Londrina+Shadow&family=Nanum+Pen+Script&family=Nerko+One&family=Orbitron:wght@400..900&family=Pangolin&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* =========================
+   1. Color Tokens
+========================= */
+:root{
+  --color-back1:#3B0270;
+  --color-back2:#6F00FF;
+  --color-back3:#E9B3FB;
+  --color-back4:#FFF1F1;
+
+  --card-bg: rgba(10, 5, 30, 0.75);
+  --card-border: rgba(255, 255, 255, 0.35);
+  --accent: #E9B3FB;
+  --text-main: #ffffff;
+  --text-sub: #d4c9ff;
+}
+
+/* =========================
+   2. Reset
+========================= */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   3. Body (Background + Stars)
+========================= */
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Jersey 10", sans-serif;
+  font-style: normal;
+  color: var(--text-main);
+
+  background: linear-gradient(
+    90deg,
+    var(--color-back1),
+    var(--color-back2),
+    var(--color-back3),
+    var(--color-back4)
+  );
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 400% 400%;
+  animation: gradientFlow 12s ease infinite;
+
+  position: relative;
+  overflow: hidden;
+}
+
+body::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./images/stars.png");
+  animation: twinkle 4s infinite ease-in-out alternate;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =========================
+   4. Login Card
+========================= */
+.container{
+  width: 380px;
+  max-width: 90%;
+  padding: 28px 26px;
+
+  background-image: url("./images/space.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+  animation: fade-up 0.6s ease-out;
+
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* 어두운 오버레이 + 네뷸라 포그 */
+.container::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(0, 0, 0, 0.75),
+    rgba(102, 51, 153, 0.55)
+  );
+  backdrop-filter: blur(6px);
+  z-index: 0;
+  animation: fogMove 12s ease-in-out infinite;
+}
+
+/* 네온 오라 테두리 */
+.container::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(135deg, #e9b3fb, #6f00ff, #3b0270);
+  background-size: 200% 200%;
+  animation: auraMove 6s ease-in-out infinite;
+
+  /* 표준 mask */
+  mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+
+  /* 벤더 프리픽스(웹킷) */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+}
+
+/* 카드 호버 시 전체 글로우 */
+.container:hover{
+  box-shadow: 0 0 20px rgba(233,179,251,0.6),
+              0 0 40px rgba(111,0,255,0.5);
+  transform: translateY(-4px);
+  transition: 0.4s ease;
+}
+
+/* =========================
+   5. Form Layout
+========================= */
+.login-form{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.login-form h2{
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+  color: var(--accent);
+  animation: glowTitle 2s ease-in-out infinite alternate;
+}
+
+/* =========================
+   6. Input Box
+========================= */
+.input-box{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 14px;
+  margin-bottom: 18px;
+
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(233, 179, 251, 0.45);
+  transition: 0.3s ease;
+}
+
+.input-box i{
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.input-box input{
+  flex: 1;
+  padding: 8px 4px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-main);
+  font-size: 18px;
+}
+
+.input-box input::placeholder{
+  color: rgba(230, 220, 255, 0.7);
+}
+
+/* 포커스 시 파동 + 살짝 떠오름 */
+.input-box:focus-within{
+  box-shadow: 0 0 12px rgba(233,179,251,0.6);
+  transform: translateY(-3px);
+}
+
+/* =========================
+   7. Remember / Forgot
+========================= */
+.remember{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  margin: 6px 0 22px;
+  padding: 0 4px;
+  color: var(--text-sub);
+}
+
+.remember label{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.remember input[type="checkbox"]{
+  accent-color: var(--accent);
+}
+
+.remember .forgot{
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.remember .forgot:hover{
+  text-decoration: underline;
+}
+
+/* =========================
+   8. Button (네온 + 궤도 + 리플)
+========================= */
+button{
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #E9B3FB, #6F00FF);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* 버튼 내부 궤도 도는 작은 점 */
+button::after{
+  content:"";
+  position:absolute;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow: 0 0 8px rgba(255,255,255,0.9);
+  top:50%;
+  left:50%;
+  pointer-events: none;
+
+  /* 버튼 중심 기준으로 궤도 회전 */
+  animation: orbit 2s linear infinite;
+}
+
+/* 버튼 hover: 네온 + 스윕 */
+button::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:120%;
+  height:100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+button:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px #b066ff, 0 0 28px #8a2be2;
+  filter: brightness(1.15);
+}
+
+button:hover::before{
+  animation: wave 0.8s ease;
+}
+
+/* 클릭 시 리플 효과 (버튼 중앙에서 퍼짐) */
+button:active{
+  transform: translateY(0) scale(0.96);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+button:active::after{
+  animation: ripple 0.4s ease-out;
+}
+
+/* =========================
+   9. Register Text
+========================= */
+.register{
+  position: relative;
+  z-index: 1;
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+.register a{
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.register a:hover{
+  text-decoration: underline;
+  text-shadow: 0 0 10px #e9b3fb, 0 0 20px #b066ff;
+}
+
+/* =========================
+   10. Keyframes
+========================= */
+
+/* 카드 등장 */
+@keyframes fade-up{
+  from{
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 배경 그라데이션 흐름 */
+@keyframes gradientFlow{
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+
+/* 별 반짝임 */
+@keyframes twinkle{
+  0%{ opacity: 0.2; }
+  100%{ opacity: 0.5; }
+}
+
+/* 버튼 스윕 파동 */
+@keyframes wave{
+  to{
+    left: 120%;
+  }
+}
+
+/* 타이틀 글로우 */
+@keyframes glowTitle{
+  0%{ text-shadow: 0 0 5px #e9b3fb; }
+  100%{ text-shadow: 0 0 15px #6f00ff; }
+}
+
+/* 오라 테두리 이동 */
+@keyframes auraMove{
+  0%{ background-position: 0% 50%; }
+  100%{ background-position: 100% 50%; }
+}
+
+/* 네뷸라 포그 이동 */
+@keyframes fogMove{
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* 버튼 위 작은 점 궤도 회전 */
+@keyframes orbit{
+  0%{
+    transform: translate(-50%, -50%) rotate(0deg) translateX(140%);
+    opacity: 0.9;
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg) translateX(140%);
+    opacity: 0.9;
+  }
+}
+
+/* 클릭 리플 */
+@keyframes ripple{
+  0%{
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.7;
+  }
+  100%{
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
